@@ -24,21 +24,29 @@
           </section>
         </div>
         <div class="secao">
-          <h2>Entrada</h2>
-          <textarea pInputTextarea class="wfull space"></textarea>
+          <form [formGroup]="dataControl">
+            <h2>Entrada</h2>
+            <textarea
+              pInputTextarea
+              class="wfull space"
+              formControlName="entrada"
+            ></textarea>
 
-          <button
-            pButton
-            type="button"
-            label="NÃO ERA PRA SER DIFERENTE?"
-            class="wfull space"
-          ></button>
-          <h2>Saída</h2>
-          <textarea
-            pInputTextarea
-            [disabled]="true"
-            class="wfull space"
-          ></textarea>
+            <button
+              pButton
+              type="button"
+              label="NÃO ERA PRA SER DIFERENTE?"
+              class="wfull space"
+              (click)="handleCode()"
+            ></button>
+            <h2>Saída</h2>
+            <textarea
+              formControlName="saida"
+              pInputTextarea
+              [disabled]="true"
+              class="wfull space"
+            ></textarea>
+          </form>
         </div>
       </div>
     </p-tabPanel>

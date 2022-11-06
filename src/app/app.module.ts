@@ -14,6 +14,8 @@ import { ButtonModule } from 'primeng/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -29,6 +31,9 @@ import { HomeComponent } from './components/home/home.component';
     TerminalModule,
     InputTextareaModule,
     ButtonModule,
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

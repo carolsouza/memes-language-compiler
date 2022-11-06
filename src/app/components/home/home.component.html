@@ -24,21 +24,28 @@
           </section>
         </div>
         <div class="secao">
-          <h2>Entrada</h2>
-          <textarea pInputTextarea class="wfull space"></textarea>
+          <form [formGroup]="dataControl">
+            <h2>Entrada</h2>
+            <textarea
+              pInputTextarea
+              class="wfull space"
+              formControlName="entrada"
+            ></textarea>
 
-          <button
-            pButton
-            type="button"
-            label="NÃO ERA PRA SER DIFERENTE?"
-            class="wfull space"
-          ></button>
-          <h2>Saída</h2>
-          <textarea
-            pInputTextarea
-            [disabled]="true"
-            class="wfull space"
-          ></textarea>
+            <button
+              pButton
+              type="button"
+              label="NÃO ERA PRA SER DIFERENTE?"
+              class="wfull space"
+              (click)="handleCode()"
+            ></button>
+            <h2>Saída</h2>
+            <textarea
+              formControlName="saida"
+              pInputTextarea
+              class="wfull space"
+            ></textarea>
+          </form>
         </div>
       </div>
     </p-tabPanel>
@@ -61,76 +68,70 @@
         <p-accordionTab header="Printar">
           <p><strong>QUEM E ELA?</strong> ("Oi Deus, sou eu de novo");</p>
         </p-accordionTab>
-        <p-accordionTab header="Ler">
-          <p>
-            MEMORAVEL Y; <br />
-            <strong>FILMA ELA EM NOME DE JESUS</strong> ("%d", &Y)
-          </p>
-        </p-accordionTab>
         <p-accordionTab header="If">
           <p>
-            <strong>SE EU FOR</strong> <br />
-            //código <br />
-            <strong>ISSO E TUDO</strong> PESSOAL
+            <strong>SE EU FOR</strong> {{ '{' }} <br />
+            //código <br /> {{ '}' }} <br />
           </p>
         </p-accordionTab>
         <p-accordionTab header="If/Else">
           <p>
-            <strong>SE EU FOR</strong> (10 < 7) <br />
-            //VERDADEIRO <br />
-            <strong>HOJE NAO FARO</strong> <br />
-            //FALSO <br />
-            <strong>ISSO E TUDO PESSOAL</strong>
+            <strong>SE EU FOR</strong> (10 < 7) {{ '{' }} <br />
+            //VERDADEIRO <br /> {{ '}' }} <br />
+            <strong>HOJE NAO FARO</strong> {{ '{' }} <br />
+            //FALSO <br /> {{ '}' }} <br />
           </p>
         </p-accordionTab>
         <p-accordionTab header="Else If">
           <p>
-            <strong>SE EU FOR</strong> (Y < 7) <br />
+            <strong>SE EU FOR</strong> (Y < 7)  {{ '{' }} <br />
             //Y < 7 <br />
-            <strong>EU VOU</strong> (Y > 7) <br />
+            {{ '}' }} <br />
+            <strong>ENTAO EU VOU</strong> (Y > 7) {{ '{' }}  <br />
             //Y > 7 <br />
-            <strong>HOJE NAO FARO</strong> <br />
+            {{ '}' }} <br />
+            <strong>HOJE NAO FARO</strong>  {{ '{' }} <br />
             //Y = 7 <br />
-            <strong>ISSO E TUDO PESSOAL</strong>
+            {{ '}' }} <br />
           </p>
         </p-accordionTab>
         <p-accordionTab header="While">
           <p>
             MEMORAVEL ML = 13; <br />
-            <strong>ME CHAMA QUE EU VOU</strong> (ML > 13) <br />
+            <strong>ME CHAMA QUE EU VOU</strong> (ML > 13) {{ '{' }} <br />
             //código <br />
             ML--; <br />
-            <strong>ISSO E TUDO PESSOAL</strong>
+            {{ '}' }} <br />
           </p>
         </p-accordionTab>
         <p-accordionTab header="For">
           <p>
             MEMORAVEL ML; <br />
-            <strong>SE ME ATACA EU VO ATACA</strong> (ML = 0; ML < 13; M++)
+            <strong>SE ME ATACA EU VO ATACA</strong> (ML = 0; ML < 13; ML++) {{ '{' }}
             <br />
             <strong>QUEM E ELA?</strong> ("%d", ML); <br />
-            <strong>ISSO E TUDO PESSOAL</strong>
+            {{ '}' }} <br>
           </p>
         </p-accordionTab>
         <p-accordionTab header="Continuar/Parar">
           <p>
             MEMORAVEL ML; <br />
-            <strong>SE ME ATACA EU VO ATACA</strong> (ML = 0; ML < 13; M++)
+            <strong>SE ME ATACA EU VO ATACA</strong> (ML = 0; ML < 13; ML++) {{ '{' }} <br />
             <br />
             //continuar <br />
             <strong>OLHA ELA;</strong> <br />
             //parar <br />
             <strong>QUIETINHA;</strong> <br />
-            <strong>ISSO E TUDO PESSOAL</strong>
+            {{ '}' }} <br />
           </p>
         </p-accordionTab>
         <p-accordionTab header="Declarar Função">
           <p>
-            <strong>FINGE QUE EU NAO EXISTO</strong> (MEMORAVEL
-            NOMEFUNC(MEMORAVEL A, MEMORAVEL B)) <br />
+            <strong>FINGE QUE EU NAO EXISTO</strong> MEMORAVEL
+            NOMEFUNC(MEMORAVEL A, MEMORAVEL B)) {{ '{' }} <br />
             //função <br />
             <strong>MIRELLA CORRE AQUI</strong> 1<strong>;</strong> <br />
-            <strong>ISSO E TUDO PESSOAL</strong>
+            {{ '}' }} <br />
           </p>
         </p-accordionTab>
         <p-accordionTab header="Chamar Função">
